@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro simple</title>
+</head>
+<body>
+
+<h2>Agregar datos</h2>
+
+<input type="text" id="nombre" placeholder="Nombre">
+<button onclick="agregar()">Guardar</button>
+
+<h3>Lista:</h3>
+<ul id="lista"></ul>
+
+<script>
+function agregar() {
+    let nombre = document.getElementById("nombre").value;
+
+    if(nombre === "") {
+        alert("Escribe un nombre");
+        return;
+    }
+
+    let lista = document.getElementById("lista");
+    let item = document.createElement("li");
+
+    item.textContent = nombre;
+    lista.appendChild(item);
+
+    document.getElementById("nombre").value = "";
+}
+</script>
+
+</body>
+</html>
