@@ -1,0 +1,50 @@
+id="tareas_app"
+
+tareas = []
+
+def mostrar_tareas():
+    if len(tareas) == 0:
+        print("No hay tareas registradas.")
+    else:
+        print("\nLista de tareas:")
+        for i, tarea in enumerate(tareas, 1):
+            print(f"{i}. {tarea}")
+
+def agregar_tarea():
+    tarea = input("Escribe la nueva tarea: ")
+    tareas.append(tarea)
+    print("Tarea agregada correctamente.")
+
+def eliminar_tarea():
+    mostrar_tareas()
+    try:
+        num = int(input("Número de tarea a eliminar: "))
+        if 1 <= num <= len(tareas):
+            tarea_eliminada = tareas.pop(num - 1)
+            print(f"Tarea '{tarea_eliminada}' eliminada.")
+        else:
+            print("Número inválido.")
+    except:
+        print("Error: debes ingresar un número.")
+
+while True:
+    print("\n--- MENÚ ---")
+    print("1. Ver tareas")
+    print("2. Agregar tarea")
+    print("3. Eliminar tarea")
+    print("4. Salir")
+
+    opcion = input("Elige una opción: ")
+
+    if opcion == "1":
+        mostrar_tareas()
+    elif opcion == "2":
+        agregar_tarea()
+    elif opcion == "3":
+        eliminar_tarea()
+    elif opcion == "4":
+        print("¡Hasta luego!")
+        break
+    else:
+        print("Opción no válida.")
+        
