@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Aplicación</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .contenedor {
+            background: white;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <h2>Bienvenido</h2>
+
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+    <button onclick="saludar()">Saludar</button>
+
+    <p id="resultado"></p>
+</div>
+
+<script>
+    function saludar() {
+        let nombre = document.getElementById("nombre").value;
+
+        if(nombre === "") {
+            document.getElementById("resultado").innerText = "Por favor escribe tu nombre";
+        } else {
+            document.getElementById("resultado").innerText = "Hola, " + nombre + " 👋";
+        }
+    }
+</script>
+
+</body>
+</html>
