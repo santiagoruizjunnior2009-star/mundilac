@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuarios</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef;
+            text-align: center;
+        }
+
+        .formulario {
+            background: white;
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="formulario">
+    <h2>Registro</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="email" id="correo" placeholder="Correo">
+    <input type="number" id="edad" placeholder="Edad">
+
+    <button onclick="guardar()">Guardar</button>
+</div>
+
+<h2>Datos registrados</h2>
+
+<table id="tabla">
+    <tr>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Edad</th>
+    </tr>
+</table>
+
+<script>
+    function guardar() {
+        let nombre = document.getElementById("nombre").value;
+        let correo = document.getElementById("correo").value;
+        let edad = document.getElementById("edad").value;
+
+        if(nombre === "" || correo === "" || edad === "") {
+            alert("Completa todos los campos");
+            return;
+        }
+
+        let tabla = document.getElementById("tabla");
+        let fila = tabla.insertRow();
+
+        fila.insertCell(0).innerText = nombre;
+        fila.insertCell(1).innerText = correo;
+        fila.insertCell(2).innerText = edad;
+
+        // Limpiar campos
+        document.getElementById("nombre").value = "";
+        document.getElementById("correo").value = "";
+        document.getElementById("edad").value = "";
+    }
+</script>
+
+</body>
+</html>
